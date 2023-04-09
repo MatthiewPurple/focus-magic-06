@@ -3,7 +3,7 @@ using HarmonyLib;
 using Il2Cpp;
 using focus_magic_06;
 
-[assembly: MelonInfo(typeof(FocusMagic06), "Focus Magic (ver. 0.6)", "1.0.0", "Matthiew Purple")]
+[assembly: MelonInfo(typeof(FocusMagic06), "Focus Magic [compatible with Fixed Focus] (ver. 0.6)", "1.0.0", "Matthiew Purple")]
 [assembly: MelonGame("アトラス", "smt3hd")]
 
 namespace focus_magic_06;
@@ -18,7 +18,6 @@ public class FocusMagic06 : MelonMod
             // If the game is checking for the presence of magic buff (5) and the demon has focused (15)
             if (type == 5 && nbMainProcess.nbGetPartyFromFormindex(formindex).count[15] == 1)
             {
-                nbMainProcess.nbGetPartyFromFormindex(formindex).count[15] = 0; // Remove Focus
                 __result *= 2.5f; // Multiply damage by 2.5
             }
         }
