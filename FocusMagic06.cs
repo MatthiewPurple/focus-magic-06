@@ -11,14 +11,25 @@ public class FocusMagic06 : MelonMod
 {
     static public bool isHealing = false;
 
-    // Before using a magic skill
+    // Before using a magic attack
     [HarmonyPatch(typeof(nbCalc), nameof(nbCalc.nbGetMagicAttack))]
     private class Patch
     {
         public static void Prefix(ref int nskill)
         {
-            // Remembers if the skill is a healing skill
-            isHealing = datSkill.tbl[nskill].skillattr == 13;
+            // Remembers that the skill is not a healing skill
+            isHealing = false;
+        }
+    }
+
+    // Before using a magic heal
+    [HarmonyPatch(typeof(nbCalc), nameof(nbCalc.nbGetMagicKaifuku))]
+    private class Patch1
+    {
+        public static void Prefix(ref int nskill)
+        {
+            // Remembers that the skill is a healing skill
+            isHealing = true;
         }
     }
 
