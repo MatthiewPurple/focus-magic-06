@@ -17,7 +17,7 @@ public class FocusMagic06 : MelonMod
     {
         public static void Prefix(ref int nskill)
         {
-            // Checks if the skill is a healing skill
+            // Remembers if the skill is a healing skill
             isHealing = datSkill.tbl[nskill].skillattr == 13;
         }
     }
