@@ -15,7 +15,7 @@ public class FocusMagic06 : MelonMod
     [HarmonyPatch(typeof(nbCalc), nameof(nbCalc.nbGetMagicAttack))]
     private class Patch
     {
-        public static void Postfix(ref int nskill)
+        public static void Prefix(ref int nskill)
         {
             // Remembers if the skill is a healing skill
             isHealing = datSkill.tbl[nskill].skillattr == 13;
