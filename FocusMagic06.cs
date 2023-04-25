@@ -15,7 +15,7 @@ public class FocusMagic06 : MelonMod
     [HarmonyPatch(typeof(nbCalc), nameof(nbCalc.nbGetMagicAttack))]
     private class Patch
     {
-        public static void Prefix(ref int nskill)
+        public static void Prefix()
         {
             // Remembers that the skill is not a healing skill
             isHealing = false;
@@ -26,7 +26,7 @@ public class FocusMagic06 : MelonMod
     [HarmonyPatch(typeof(nbCalc), nameof(nbCalc.nbGetMagicKaifuku))]
     private class Patch1
     {
-        public static void Prefix(ref int nskill)
+        public static void Prefix()
         {
             // Remembers that the skill is a healing skill
             isHealing = true;
