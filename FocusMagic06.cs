@@ -11,12 +11,13 @@ public class FocusMagic06 : MelonMod
 {
     static public bool isHealing = false;
 
-    // After checking if a certain buff/debuff is applied
+    // Before using a magic skill
     [HarmonyPatch(typeof(nbCalc), nameof(nbCalc.nbGetMagicAttack))]
     private class Patch
     {
         public static void Postfix(ref int nskill)
         {
+            // Remembers if the skill is a healing skill
             isHealing = datSkill.tbl[nskill].skillattr == 13;
         }
     }
