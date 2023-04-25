@@ -31,7 +31,7 @@ public class FocusMagic06 : MelonMod
             // If the game is checking for the presence of magic buff (5) and the demon has focused (15)
             if (type == 5 && nbMainProcess.nbGetPartyFromFormindex(formindex).count[15] == 1 && !isHealing)
             {
-                __result *= 2.5f; // Multiply damage by 2.5
+                __result *= 2.5f; // Multiplies damage by 2.5
             }
         }
     }
