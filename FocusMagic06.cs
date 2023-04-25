@@ -31,7 +31,6 @@ public class FocusMagic06 : MelonMod
             // If the game is checking for the presence of magic buff (5) and the demon has focused (15)
             if (type == 5 && nbMainProcess.nbGetPartyFromFormindex(formindex).count[15] == 1 && !isHealing)
             {
-                nbMainProcess.nbGetPartyFromFormindex(formindex).count[15] = 0; // Remove Focus
                 __result *= 2.5f; // Multiply damage by 2.5
             }
         }
@@ -39,7 +38,7 @@ public class FocusMagic06 : MelonMod
 
     // After getting the description of a skill
     [HarmonyPatch(typeof(datSkillHelp_msg), nameof(datSkillHelp_msg.Get))]
-    private class Patch2
+    private class Patch3
     {
         public static void Postfix(ref int id, ref string __result)
         {
